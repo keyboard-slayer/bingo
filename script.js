@@ -5,7 +5,7 @@ class Bingo {
     #setupField(field, txt, n) {
         field.innerText = txt;
         field.onclick = function () {
-            if (window.bingo.states[n] === 0 && !window.bingo.bingo) {
+            if (window.bingo.states[n] === 0) {
                 field.style.backgroundColor = "#8839ef";
                 window.bingo.states[n] = 1;
                 window.bingo.isBingo();
@@ -65,16 +65,18 @@ class Bingo {
             ]
         ]
 
-        this.bingo = possibleBingos.some((bingo) => {
+        let bingo = possibleBingos.some((bingo) => {
             return bingo.every((v, i) => {
                 return v === 0 || this.states[i] === 1;
             });
         });
 
-        if (this.bingo) {
+        if (bingo && !this.bingo) {
             let audio = new Audio("bingo.mp3");
             audio.play();
         }
+
+        this.bingo = bingo;
     }
 
     constructor(db, target) {
