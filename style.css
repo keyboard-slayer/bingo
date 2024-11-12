@@ -21,8 +21,26 @@ table {
 
 td {
     border: 1px solid #cba6f7;
-    width: 10vw;
-    height: 25vh;
+}
+
+@media screen and (orientation: landscape) {
+    td {
+        width: 10vw;
+        height: 20vh;
+    }
+
+    body>div {
+        width: 50%;
+        height: 50%;
+        margin: auto;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    td {
+        width: 25vw;
+        height: 20vh;
+    }
 }
 
 h1 {
@@ -30,8 +48,3 @@ h1 {
     font-weight: 700;
 }
 
-body>div {
-    width: 50%;
-    height: 50%;
-    margin: auto;
-}
