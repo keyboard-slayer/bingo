@@ -10,6 +10,14 @@ class Bingo {
                 window.bingo.states[n] = 1;
                 window.bingo.isBingo();
             }
+            else if (window.bingo.states[n] === 1) {
+                field.style.backgroundColor = "transparent";
+                window.bingo.states[n] = 0;
+
+                if (window.bingo.bingo) {
+                    window.bingo.bingo = false;
+                }
+            }
         }
     }
 
